@@ -1,0 +1,44 @@
+        <input type="text" id="name" class="search-key" placeholder="name">
+        <input type="text" id="lastname" class="search-key" placeholder="lastname">
+        <input type="number" id="number" class="search-key" placeholder="number">
+        <p></p>
+        <table id="MI6">
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th> 
+                <th>Number</th>
+            </tr>
+            <tr>
+                <td data-input="name">James</td>
+                <td data-input="lastname">Bond</td> 
+                <td data-input="number">7</td>
+            </tr>
+            <tr>
+                <td data-input="name">Vesperxx</td>
+                <td data-input="lastname">Lyndz</td> 
+                <td data-input="number">6</td>
+            </tr>
+            <tr>
+                <td data-input="name">Renexy</td>
+                <td data-input="lastname">Mathisz</td> 
+                <td data-input="number">5</td>
+            </tr>
+    </table>
+
+var $filterableRows = $('#MI6').find('tr').not(':first'),
+		$inputs = $('.search-key');
+
+$inputs.on('input', function() {
+
+	$filterableRows.hide().filter(function() {
+  	return $(this).find('td').filter(function() {
+    	
+      var tdText = $(this).text().toLowerCase(),
+      		inputValue = $('#' + $(this).data('input')).val().toLowerCase();
+    
+    	return tdText.indexOf(inputValue) != -1;
+    
+    }).length == $(this).find('td').length;
+  }).show();
+
+});
