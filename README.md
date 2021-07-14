@@ -1,1 +1,41 @@
-# JqueryUtil
+# Jquery Util
+
+##### Jquery Filter
+** Reduce the set of matched elements to those that match the selector or pass the function's test.
+```
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>filter demo</title>
+  <style>
+  div {
+    width: 60px;
+    height: 60px;
+    margin: 5px;
+    float: left;
+    border: 2px white solid;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+<body>
+ 
+<div></div>
+<div class="middle"></div>
+<div class="middle"></div>
+<div class="middle"></div>
+<div class="middle"></div>
+<div></div>
+ 
+<script>
+$( "div" )
+  .css( "background", "#c8ebcc" )
+  .filter( ".middle" )
+    .css( "border-color", "red" );
+</script>
+ 
+</body>
+</html>
+
+```
